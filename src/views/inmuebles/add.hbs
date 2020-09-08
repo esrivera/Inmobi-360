@@ -1,0 +1,403 @@
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top m-b-0">
+        <div class="navbar-header">
+            <div class="top-left-part">
+                <a class="logo" href="dashboard.html">
+                    <b>
+                        <img
+                            src="intranet/plugins/images/admin-logo.png"
+                            alt="home"
+                            class="dark-logo" />
+                        <img
+                            src="intranet/plugins/images/admin-logo-dark.png"
+                            alt="home"
+                            class="light-logo" />
+                    </b>
+                    <span
+                        class="hidden-xs">
+                        <img
+                            src="intranet/plugins/images/admin-text.png"
+                            alt="home"
+                            class="dark-logo" />
+                        <img
+                            src="intranet/plugins/images/admin-text-dark.png"
+                            alt="home"
+                            class="light-logo" />
+                    </span> </a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right pull-right">
+                <li>
+                    <a class="nav-toggler open-close waves-effect waves-light
+                        hidden-md hidden-lg"
+                        href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                </li>
+                <li>
+                    <a href="logout" class="waves-effect">Cerrar Sesión <i
+                            class="fa fa-power-off
+                            fa-fw"
+                            aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav slimscrollsidebar">
+            <div class="sidebar-head">
+                <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span>
+                    <span
+                        class="hide-menu">Navigation</span></h3>
+            </div>
+            <ul class="nav" id="side-menu">
+                <li style="padding: 70px 0 0;">
+                    <a href="#" class="waves-effect"><i class="fa
+                            fa-home fa-fw"
+                            aria-hidden="true"></i>Crear Anuncio</a>
+                </li>
+                <li>
+                    <a href="/direct/{{user.type_user}}" class="waves-effect"><i
+                            class="fa fa-user
+                            fa-fw"
+                            aria-hidden="true"></i>Perfil</a>
+                </li>
+                <li>
+                    <a href="/mensajes" class="waves-effect"><i class="fa
+                            fa-envelope fa-fw"
+                            aria-hidden="true"></i>Mensajes</a>
+                </li>
+                <li>
+                    <a href="/anuncios" class="waves-effect"><i class="fa
+                            fa-building fa-fw"
+                            aria-hidden="true"></i>Mis Anuncios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-xs-12">
+                    <h4 class="page-title">REGISTRAR ANUNCIO</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row center-block">
+            {{>message}}
+            <div class="col-md-12 center-block mdi-format-align-center">
+                <div class="white-box center-block">
+                    <form class="form-horizontal form-material" action="/add"
+                        method="POST">
+                        <label class="col-md-12 center-block m-t-10 m-b-20"><i
+                                class="fa fa-edit m-r-5"></i> Datos Básicos del
+                            Anuncio</label>
+                        <div class="form-group">
+                            <label class="col-md-3">Tipo de Anuncio</label>
+                            <label class="col-md-3">Tipo de Inmueble</label>
+                            <label class="col-md-3">Precio</label>
+                            <label class="col-md-3">Área contruida</label>
+                            <div class="col-md-3">
+                                <select class="form-control form-control-line"
+                                    name="tipo_anuncio" id="tipo_anuncio">
+                                    <option>Venta </option>
+                                    <option>Arriendo </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control form-control-line"
+                                    name="tipo_inmueble" id="tipo_inmueble">
+                                    <option>Casa </option>
+                                    <option>Departamento </option>
+                                    <option>En Desarrollo</option>
+                                    <option>Local</option>
+                                    <option>Oficina</option>
+                                    <option>Suite</option>
+                                    <option>Villa</option>
+                                    <option>Terreno</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa
+                                            fa-money"></i></span>
+                                    <input type="number" step="any"
+                                        name="precio" id="precio" min="1"
+                                        placeholder="Precion del Inmueble"
+                                        class="form-control form-control-line
+                                        m-l-5" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <input type="number" step="any"
+                                        name="area" id="area" min="1"
+                                        placeholder="Área del Inmueble"
+                                        class="form-control form-control-line"
+                                        required>
+                                    <span class="input-group-addon">m2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-md-12 center-block m-t-10 m-b-20"><i
+                                class="fa fa-map-marker m-r-5"></i> Datos de
+                            Localización</label>
+                        <div class="form-group">
+                            <label class="col-md-6">Provincia</label>
+                            <label class="col-md-6">Ciudad</label>
+                            <div class="col-md-6">
+                                <input type="text" name="provincia"
+                                    id="provincia" placeholder="Provincia"
+                                    class="form-control form-control-line"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="ciudad"
+                                    placeholder="Ciudad"
+                                    id="ciudad" class="form-control
+                                    form-control-line" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6">Dirección(barrio,calle,número,etc)</label>
+                            <label class="col-md-6">Referencias</label>
+                            <div class="col-md-6">
+                                <input type="text" name="direccion"
+                                    id="direccion" placeholder="Dirección del Inmueble"
+                                    class="form-control form-control-line"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="referencia"
+                                    id="referencia" placeholder="Referencias del Inmueble"
+                                    class="form-control form-control-line"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h4><b>Ubicación del Inmueble</b></h4>
+                                        <div id="gmaps-simple" class="gmaps"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-md-12 center-block m-t-10 m-b-20"><i
+                                class="fa fa-user m-r-5"></i> Datos de Contacto</label>
+                        <p class="m-b-15 m-t-15">En Caso de no cambiar los datos
+                            se utilizaran la información presentada para el
+                            contacto del Inmueble</p>
+                        <div class="form-group">
+                            <label class="col-md-12">Nombre</label>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Nombre del Contacto" name="nombre" id="nombre"
+                                    value="{{user.nombre}} {{user.apellido}}"
+                                    class="form-control form-control-line"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6">Email</label>
+                            <label class="col-sm-6">Teléfono</label>
+                            <div class="col-md-6">
+                                <input type="email" placeholder="Email del Contacto" name="email"
+                                    id="email" value="{{user.email}}"
+                                    class="form-control form-control-line"
+                                    required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" name="telefono" id="telefono"
+                                    value="{{user.telefono}}"
+                                    class="form-control form-control-line"
+                                    required>
+                            </div>
+                        </div>
+                        <label class="col-md-12 center-block m-t-10 m-b-20"><i
+                                class="fa fa-home m-r-5"></i> Descripción y
+                            Caracteristicas del Inmueble</label>
+                        <div class="form-group">
+                            <label class="col-md-12">Título del Anuncio</label>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Título del Anuncio" name="titulo" id="titulo"
+                                    class="form-control form-control-line" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Descripción del Anuncio</label>
+                            <div class="col-md-12">
+                                <p><textarea name="descripcion" cols="40" rows="5" placeholder="Almenos 30 Caracteres" 
+                                class="form-control form-control-line" required></textarea></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4">Cantidad de Habitaciones</label>
+                            <label class="col-md-4">Cantidad de Baños</label>
+                            <label class="col-md-4">Cantidad de Pisos</label>
+                            <div class="col-md-4">
+                                <input type="number" step="1"
+                                        name="habitacion" id="habitacion" min="1" max="10"
+                                        placeholder="Cantidad de Habitaciones" 
+                                        class="form-control form-control-line m-l-5" required>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="number" step="1"
+                                        name="banio" id="banio" min="1" max="10"
+                                        placeholder="Cantidad de Baños" 
+                                        class="form-control form-control-line m-l-5" required>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="number" step="1"
+                                        name="piso" id="piso" min="1" max="10"
+                                        placeholder="Cantidad de Pisos" 
+                                        class="form-control form-control-line m-l-5" required>
+                            </div>
+                        </div>
+                        <label class="col-md-12 center-block m-t-10 m-b-20"><i
+                                class="fa fa-image m-r-5"></i> Fotos del Anuncio</label>
+                        <div class="form-group">
+                            <p><i class="fa fa-info m-r-5 m-l-30"></i><b> Imágenes:</b> una imagen vale más que mil palabras.
+                             Cuantas más y mejores sean tus fotos más contactos recibirás.</p>
+                            <div class="col-md-12">
+                                <input type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif" 
+                                class="form-control form-control-line m-l-10">
+                            </div>
+                        </div>                       
+                        <label class="col-md-12 center-block m-t-10 m-b-20"><i
+                                class="fa fa-suitcase m-r-5"></i> Días y Horario de Atención</label>
+                        <div class="form-group">
+                            <label class="col-md-12">Días Disponibles</label>
+                            <div class="col-sm-2">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="Lunes" class="custom-control-input" name="dias" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Lunes</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="Martes" class="custom-control-input" name="dias" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Martes</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-2">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="Miercoles" class="custom-control-input" name="dias" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Miercoles</label>
+                                </div>
+                            </div>      
+                            <div class="col-sm">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="Jueves" class="custom-control-input" name="dias" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Jueves</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-2">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="Viernes" class="custom-control-input" name="dias" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Viernes</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-2">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="Sabado" class="custom-control-input" name="dias" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Sábado</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-2">
+                                <div class="custom-control custom-checkbox">
+                                     <input type="checkbox" value="Domingo" class="custom-control-input" name="dias" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Domingo</label>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Horarios Disponibles</label>
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="8:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">8:00</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="9:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">9:00</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="10:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">10:00</label>
+                                </div>
+                            </div>      
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="11:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">11:00</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="12:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">12:00</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="13:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">13:00</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                     <input type="checkbox" value="14:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">14:00</label>
+                                </div>
+                            </div> 
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                     <input type="checkbox" value="15:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">15:00</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                     <input type="checkbox" value="16:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">16:00</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                     <input type="checkbox" value="17:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">17:00</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                     <input type="checkbox" value="18:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">18:00</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="custom-control custom-checkbox">
+                                     <input type="checkbox" value="19:00" class="custom-control-input" name="horas" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">19:00</label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="usuario" value="{{user.email}}">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <button class="btn btn-succes center-block" style="color: #fff; background: #7ace4c; border: 1px solid #7ace4c;" type="submit">Guardar Cambios</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer class="footer text-center"> 2017 &copy; Ample Admin brought
+                to you by wrappixel.com </footer>
+        </div>
+    </div>
+</div>
+
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="intranet/plugins/bower_components/gmaps/gmaps.min.js"></script>
+<script src="intranet/plugins/bower_components/gmaps/jquery.gmaps.js"></script>

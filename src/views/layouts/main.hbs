@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inmobiliario 360°</title>
+    {{#if user}}
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="intranet/plugins/images/favicon.png">
+    <link href="intranet/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="intranet/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+      rel="stylesheet">
+    <link href="intranet/css/animate.css" rel="stylesheet">
+    <link href="intranet/css/style.css" rel="stylesheet">
+    <link href="intranet/css/colors/default.css" id="theme" rel="stylesheet">
+    {{else}}
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/nouislider.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css"
+      media="screen" />
+    <link id="switcher" href="css/theme-color/default-theme.css"
+      rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn'
+      rel='stylesheet' type='text/css'>
+    {{/if}}
+  </head>
+  {{#if user}}
+  <body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2"
+          stroke-miterlimit="10" />
+        </svg>
+      </div>
+      {{{body}}}
+      <script src="intranet/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="intranet/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script
+        src="intranet/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+      <script src="intranet/js/jquery.slimscroll.js"></script>
+      <script src="intranet/js/waves.js"></script>
+      <script src="intranet/js/custom.min.js"></script>
+    </body>
+    {{else}}
+    <body class="aa-price-range">
+      <div id="aa-preloader-area">
+        <div class="pulse"></div>
+      </div>
+      <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+      {{{body}}}
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script type="text/javascript" src="js/slick.js"></script>
+      <script type="text/javascript" src="js/nouislider.js"></script>
+      <script type="text/javascript" src="js/jquery.mixitup.js"></script>
+      <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+      <script src="js/custom.js"></script>
+    </body>
+    {{/if}}
+  </html>

@@ -1,0 +1,128 @@
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top m-b-0">
+        <div class="navbar-header">
+            <div class="top-left-part">
+                <a class="logo" href="#">
+                    <b>
+                        <img
+                            src="intranet/plugins/images/admin-logo.png"
+                            alt="home"
+                            class="dark-logo" />
+                        <img
+                            src="intranet/plugins/images/admin-logo-dark.png"
+                            alt="home"
+                            class="light-logo" />
+                    </b>
+                    <span
+                        class="hidden-xs">
+                        <img
+                            src="intranet/plugins/images/admin-text.png"
+                            alt="home"
+                            class="dark-logo" />
+                        <img
+                            src="intranet/plugins/images/admin-text-dark.png"
+                            alt="home"
+                            class="light-logo" />
+                    </span> </a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right pull-right">
+                <li>
+                    <a class="nav-toggler open-close waves-effect waves-light
+                        hidden-md hidden-lg"
+                        href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                </li>
+                <li>
+                    <a href="logout" class="waves-effect">Cerrar Sesión <i
+                            class="fa fa-power-off
+                            fa-fw"
+                            aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav slimscrollsidebar">
+            <div class="sidebar-head">
+                <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span>
+                    <span
+                        class="hide-menu">Navigation</span></h3>
+            </div>
+            <ul class="nav" id="side-menu">
+                <li style="padding: 70px 0 0;">
+                    <a href="/add" class="waves-effect"><i class="fa
+                            fa-home fa-fw"
+                            aria-hidden="true"></i>Crear Anuncio</a>
+                </li>
+                <li>
+                    <a href="/direct/{{user.type_user}}" class="waves-effect"><i
+                            class="fa fa-user
+                            fa-fw"
+                            aria-hidden="true"></i>Perfil</a>
+                </li>
+                <li>
+                    <a href="/mensajes" class="waves-effect"><i class="fa
+                            fa-envelope fa-fw"
+                            aria-hidden="true"></i>Mensajes</a>
+                </li>
+                <li>
+                    <a href="/anuncios" class="waves-effect"><i class="fa
+                            fa-building fa-fw"
+                            aria-hidden="true"></i>Mis Anuncios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-xs-12">
+                    <h4 class="page-title">TUS MENSAJES</h4>
+                </div>
+            </div>
+            <div class="row">
+                {{>message}}
+                {{#each links}}
+                <div class="col-md-12 col-lg-8 col-sm-12">
+                    <div class="white-box">
+                        <h3 class="box-title">MENSAJES RECIENTES</h3>
+                        <div class="comment-center p-t-10">
+                            <div class="comment-body">
+                                <div class="user-img"> <img
+                                        src="../plugins/images/users/pawandeep.jpg"
+                                        alt="user" class="img-circle">
+                                </div>
+                                <div class="mail-contnet">
+                                    <h5>Nombre</h5><span class="time">10:20 AM 20 may 2016</span>
+                                    <br/><span class="mail-desc">texto mensaje</span>
+                                        <a href="/delete/{{@key}}" class="btn
+                                            btn btn-rounded btn-default
+                                            btn-outline m-r-5"><i
+                                                class="ti-check text-success
+                                                m-r-5"></i>Eliminar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                <div class="col-md-12 col-lg-8 col-sm-12">
+                    <div class="white-box">
+                        <h3 class="box-title">MENSAJES RECIENTES</h3>
+                        <div class="comment-center p-t-10">
+                            <div class="comment-body">
+                                <div class="mail-contnet">
+                                    <h5>No tienes Mensajes en tu buzón.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="row center-block">
+                <footer class="footer text-center"> 2017 &copy; Ample Admin
+                    brought to you by wrappixel.com </footer>
+            </div>
+        </div>
+    </div>
+</div>

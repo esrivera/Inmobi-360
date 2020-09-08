@@ -1,0 +1,39 @@
+{
+    "name": "Proyecto-Inmobiliario",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon src/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/esrivera/Proyecto-Inmobiliario.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/esrivera/Proyecto-Inmobiliario/issues"
+    },
+    "homepage": "https://github.com/esrivera/Proyecto-Inmobiliario#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "connect-flash": "^0.1.1",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.1.0",
+        "express-session": "^1.17.1",
+        "express-validator": "^6.6.0",
+        "firebase-admin": "^9.0.0",
+        "morgan": "^1.10.0",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "sleep": "^6.3.0",
+        "timeago.js": "^4.0.2"
+    },
+    "devDependencies": {
+        "mocha": "^8.1.2",
+        "nodemon": "^2.0.4",
+        "supertest": "^4.0.2"
+    }
+}

@@ -1,0 +1,113 @@
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top m-b-0">
+        <div class="navbar-header">
+            <div class="top-left-part">
+                <a class="logo" href="#">
+                    <b>
+                        <img
+                            src="intranet/plugins/images/admin-logo.png"
+                            alt="home"
+                            class="dark-logo" />
+                        <img
+                            src="intranet/plugins/images/admin-logo-dark.png"
+                            alt="home"
+                            class="light-logo" />
+                    </b>
+                    <span
+                        class="hidden-xs">
+                        <img
+                            src="intranet/plugins/images/admin-text.png"
+                            alt="home"
+                            class="dark-logo" />
+                        <img
+                            src="intranet/plugins/images/admin-text-dark.png"
+                            alt="home"
+                            class="light-logo" />
+                    </span> </a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right pull-right">
+                <li>
+                    <a class="nav-toggler open-close waves-effect waves-light
+                        hidden-md hidden-lg"
+                        href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                </li>
+                <li>
+                    <a href="logout" class="waves-effect">Cerrar Sesión <i
+                            class="fa fa-power-off
+                            fa-fw"
+                            aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav slimscrollsidebar">
+            <div class="sidebar-head">
+                <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span>
+                    <span
+                        class="hide-menu">Navigation</span></h3>
+            </div>
+            <ul class="nav" id="side-menu">
+                <li style="padding: 70px 0 0;">
+                    <a href="/add" class="waves-effect"><i class="fa
+                            fa-home fa-fw"
+                            aria-hidden="true"></i>Crear Anuncio</a>
+                </li>
+                <li>
+                    <a href="/direct/{{user.type_user}}" class="waves-effect"><i
+                            class="fa fa-user
+                            fa-fw"
+                            aria-hidden="true"></i>Perfil</a>
+                </li>
+                <li>
+                    <a href="/mensajes" class="waves-effect"><i class="fa
+                            fa-envelope fa-fw"
+                            aria-hidden="true"></i>Mensajes</a>
+                </li>
+                <li>
+                    <a href="/anuncios" class="waves-effect"><i class="fa
+                            fa-building fa-fw"
+                            aria-hidden="true"></i>Mis Anuncios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-xs-12">
+                    <h4 class="page-title">TUS ANUNCIOS</h4>
+                </div>
+            </div>
+            <div class="row">
+                {{>message}}
+                {{#each links}}
+                <div class="col-lg-5 col-sm-6 col-xs-12 mx-auto">
+                    <div class="white-box analytics-info">
+                        <img src="/img/gallery/small/1.jpg"
+                            class="card-img-top center-block" alt="img"><br>
+                        <h3 class="box-title">{{titulo}}</h3>
+                        <p>{{descripcion}}</p>
+                        <a href="/delete/{{@key}}" class="btn
+                            btn-primary
+                            btn-block">Eliminar</a>
+                    </div>
+                </div>
+                {{else}}
+                <div class="col-lg-5 col-sm-6 col-xs-12 m-l-20">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">No has creado anuncios aun.</h3>
+                        <a href="/add">Crea Uno!</a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="row center-block">
+                <footer class="footer text-center"> 2017 &copy; Ample Admin
+                    brought
+                    to you by wrappixel.com </footer>
+            </div>
+        </div>
+
+    </div>
+</div>
