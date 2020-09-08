@@ -7,24 +7,25 @@ const sleep = require('sleep');
 
 //AÑADIR
 router.get('/inmuebles', isNotLoggedIn, (req, res) => {
-    db.ref('users').once("value", async function(snapshot) {
-        let firebasedata = [];
-        let idUsers = [];
-        snapshot.forEach(x => {
-            firebasedata.push(x.val())
-        });
-        var i = 0;
-        while (i < firebasedata.length) {
-            db.ref('users').orderByChild('email').equalTo(firebasedata[i].email).once("child_added", function(snapshot) {
-                idUsers.push(snapshot.key);
-            });
-            i++;
-        }
-        setTimeout(function() {
-            console.log(idUsers);
-            return res.render('inmuebles/list');
-        }, 500);
-    });
+    /* db.ref('users').once("value", function(snapshot) {
+         let firebasedata = [];
+         let idUsers = [];
+         snapshot.forEach(x => {
+             firebasedata.push(x.val())
+         });
+         var i = 0;
+         while (i < firebasedata.length) {
+             db.ref('users').orderByChild('email').equalTo(firebasedata[i].email).once("child_added", function(snapshot) {
+                 idUsers.push(snapshot.key);
+             });
+             i++;
+         }
+         setTimeout(function() {
+             console.log(idUsers);
+             return res.render('inmuebles/list');
+         }, 500);
+     });*/
+    return res.render('inmuebles/list');
 });
 
 router.get('/detalle', isNotLoggedIn, (req, res) => {
